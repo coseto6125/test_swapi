@@ -8,4 +8,4 @@ class Api_User(HttpUser):
         self.client.get(f'/people/1/')
 
 #locust -f locustfile.py -H https://swapi.dev/api --headless -u 10 -r 10 -t 600s
-
+#locust -f ./street_test_locust/locustfile.py -H https://swapi.dev/api --headless -u 10 -r 1 -t 10s
