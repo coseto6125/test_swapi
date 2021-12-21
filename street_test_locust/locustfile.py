@@ -5,9 +5,11 @@ from locust.contrib.fasthttp import FastHttpUser
 #class Api_User(FastHttpUser):
 class Api_User(HttpUser):
     wait_time = constant_pacing(1)
+    network_timeout = 5.0
+    connection_timeout = 5.0
     @task
     def test_locust(self):
-        with self.client.get("https://swapi.dev/api/people/1/",catch_response=True) as r:
+        with self.client.get("https://www.google.com/",catch_response=True) as r:
             Vehicles_size = len(r.json()['vehicles'])
             assert Vehicles_size >= 1                       #------Vehicles_size >= 1
             assert r.status_code == 200                     #------http status check == 200
