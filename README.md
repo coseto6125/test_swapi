@@ -1,7 +1,7 @@
 # test_in_swapi.py
-* just run: `pytest`
 ![image](https://user-images.githubusercontent.com/80243681/146916591-4ff4511d-48fb-4aa5-8bc1-5a1493b66f0f.png)
 
+* just run: `pytest`
 
 
 # locustfile.py
