@@ -9,7 +9,7 @@ class Api_User(HttpUser):
     connection_timeout = 5.0
     @task
     def test_locust(self):
-        with self.client.get("https://www.google.com/",catch_response=True) as r:
+        with self.client.get("https://swapi.dev/api/people/1/",catch_response=True) as r:
             Vehicles_size = len(r.json()['vehicles'])
             assert Vehicles_size >= 1                       #------Vehicles_size >= 1
             assert r.status_code == 200                     #------http status check == 200
@@ -18,5 +18,5 @@ class Api_User(HttpUser):
             else:
                 r.failure("GetActConfig[Failed!]")
                 
-#locust -f locustfile.py -H https://swapi.dev/api --headless -u 10 -r 10 -t 600s
+#locust -f locustfile.py -H https://swapi.dev/api --headless -u 10 -r 10 -t 10s
 #locust -f ./street_test_locust/locustfile.py -H https://swapi.dev/api --headless -u 10 -r 10 -t 10s
